@@ -38,6 +38,9 @@ const teamList = [
     }
 ]
 
+const ulList = document.querySelector('.list');
+
+
 // Stampare su console, per ogni membro del team, le informazioni di nome, ruolo e la stringa della foto
 for (let i=0; i < teamList.length; i++){
     // GENERO L IMG SOURCE USANDO NOME E RUOLO
@@ -45,7 +48,8 @@ for (let i=0; i < teamList.length; i++){
     console.log (teamList[i]);
 }
 
-
+// Stampare le stesse informazioni su DOM sottoforma di stringhe
+printOnDom();
 
 
 
@@ -56,4 +60,23 @@ function imgSrcGenerator (object) {
     let source = "";
     source+=object.nome.replaceAll(" ", "-").toLowerCase()+"-"+object.ruolo.replaceAll(" ", "-").replace("&-", "").toLowerCase()+".jpg";
     return source;
+}
+
+function printOnDom(){
+    for (let i = 0; i < teamList.length; i++){
+        const li = document.createElement('li');
+        const h2 = document.createElement('h2');
+        const p = document.createElement('p');
+        // Trasformare la stringa foto in una immagine effettiva
+        const img = document.createElement('img');
+        let buffer ="img/"+teamList[i].imgSrc;
+        h2.append(teamList[i].nome);
+        p.append(teamList[i].ruolo);
+        img.src=buffer;
+        console.log(img.src);
+        li.append(h2);
+        li.append(p);
+        li.append(img);
+        ulList.append(li);
+    }
 }
