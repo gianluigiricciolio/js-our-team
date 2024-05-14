@@ -3,48 +3,53 @@
 const teamList = [
     {
         nome: "Wayne Barnett",
-        ruolo: "Founder & CEO",
-        imgSrc: "wayne-barnett-founder-ceo.jpg"
+        ruolo: "Founder CEO",
+        imgSrc: ""
     },
 
     {
         nome: "Angela Caroll",
         ruolo: "Chief Editor",
-        imgSrc: "wayne-barnett-founder-ceo.jpg"
+        imgSrc: ""
     },
 
     {
-        nome: "Wayne Barnett",
-        ruolo: "Founder & CEO",
-        imgSrc: "wayne-barnett-founder-ceo.jpg"
+        nome: "Walter Gordon",
+        ruolo: "Office Manager",
+        imgSrc: ""
     },
 
     {
-        nome: "Wayne Barnett",
-        ruolo: "Founder & CEO",
-        imgSrc: "wayne-barnett-founder-ceo.jpg"
+        nome: "Angela Lopez",
+        ruolo: "Social Media Manager",
+        imgSrc: ""
     },
 
     {
-        nome: "Wayne Barnett",
-        ruolo: "Founder & CEO",
-        imgSrc: "wayne-barnett-founder-ceo.jpg"
+        nome: "Scott Estrada",
+        ruolo: "Developer",
+        imgSrc: ""
     },
 
     {
-        nome: "Wayne Barnett",
-        ruolo: "Founder & CEO",
-        imgSrc: "wayne-barnett-founder-ceo.jpg"
+        nome: "Barbara Ramos",
+        ruolo: "Graphic Designer",
+        imgSrc: ""
     }
 ]
 
+
 for (let i=0; i < teamList.length; i++){
+    // GENERO L IMG SOURCE USANDO NOME E RUOLO
+    teamList[i].imgSrc = imgSrcGenerator(teamList[i]);
     console.log (teamList[i]);
 }
 
-// function imgSrcGenerator () {
-//     let source = "";
 
 
-//     return source;
-// }
+
+function imgSrcGenerator (object) {
+    let source = "";
+    source+=object.nome.replace(" ", "-").toLowerCase()+"-"+object.ruolo.replace(" ", "-").toLowerCase()+".jpg";
+    return source;
+}
