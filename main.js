@@ -1,9 +1,9 @@
 'use strict';
-
+// Creare l’array di oggetti con le informazioni fornite.
 const teamList = [
     {
         nome: "Wayne Barnett",
-        ruolo: "Founder CEO",
+        ruolo: "Founder & CEO",
         imgSrc: ""
     },
 
@@ -38,7 +38,7 @@ const teamList = [
     }
 ]
 
-
+// Stampare su console, per ogni membro del team, le informazioni di nome, ruolo e la stringa della foto
 for (let i=0; i < teamList.length; i++){
     // GENERO L IMG SOURCE USANDO NOME E RUOLO
     teamList[i].imgSrc = imgSrcGenerator(teamList[i]);
@@ -48,8 +48,12 @@ for (let i=0; i < teamList.length; i++){
 
 
 
+
+
+// FUNCTIONS
+
 function imgSrcGenerator (object) {
     let source = "";
-    source+=object.nome.replace(" ", "-").toLowerCase()+"-"+object.ruolo.replace(" ", "-").toLowerCase()+".jpg";
+    source+=object.nome.replaceAll(" ", "-").toLowerCase()+"-"+object.ruolo.replaceAll(" ", "-").replace("&-", "").toLowerCase()+".jpg";
     return source;
 }
