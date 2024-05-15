@@ -45,7 +45,9 @@ const ulList = document.querySelector('.list');
 for (let i=0; i < teamList.length; i++){
     // GENERO L IMG SOURCE USANDO NOME E RUOLO
     teamList[i].imgSrc = imgSrcGenerator(teamList[i]);
-    console.log (teamList[i]);
+    for (let key in teamList[i]){
+        console.log (teamList[i][key]);
+    }
 }
 
 // Stampare le stesse informazioni su DOM sottoforma di stringhe
@@ -73,7 +75,6 @@ function printOnDom(){
         h2.append(teamList[i].nome);
         p.append(teamList[i].ruolo);
         img.src=buffer;
-        console.log(img.src);
         li.append(h2);
         li.append(p);
         li.append(img);
